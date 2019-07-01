@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Banco union</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  
+
+  <!-- Custom styles for this template -->
+  <link href="css/coming-soon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+  <!--<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"> 
+    <source src="mp4/bg.mp4" type="video/mp4">
+  </video>-->
+
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Banco Union</h1>
+            <div class="input-group input-group-newsletter">
+              <form id="datosIniciales">
+              <!-- <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="basic-addon"> -->
+              <select class="selectpicker form-control" id="tipoCredito" name="tipoCredito" style="height: auto;" required>
+                <option disabled selected>Seleccione un tipo de credito</option>
+                <optgroup label="Vivienda">
+                  <option value="7">Tasa fija</option>
+                  <option value="7">Tasa variable</option>
+                  <option value="5.5">Vivienda social</option>
+                  <option value="5.5">Anticretico</option>
+                </optgroup>
+                <optgroup label="Vehiculos">
+                  <option value="8">Tasa fija</option>
+                  <option value="8">Tasa variable</option>
+                </optgroup>
+                <optgroup label="Personas">
+                  <option value="18">Funcionarios publicos y rentistas</option>
+                </optgroup>
+                <optgroup label="Creditos de consumo">
+                  <option value="17">1er año</option>
+                  <option value="18">2do año en adelante</option>
+                </optgroup>
+                <optgroup label="Sector productivo">
+                  <option value="6">Grande</option>
+                  <option value="6">Mediana</option>
+                  <option value="7">Pequeña</option>
+                  <option value="11.5">Micro</option>
+                </optgroup>
+                <optgroup label="Sector no productivo">
+                  <option value="8">Grande</option>
+                  <option value="8">Mediana</option>
+                  <option value="10">Pequeña</option>
+                </optgroup>
+                <optgroup label="Microcredito Agrandate">
+                  <option value="22">Con otras garantias</option>
+                  <option value="16">Hipotetica de Viviendao DPF</option>
+                  <option value="4">DPF BUSA</option>
+                </optgroup>
+                <optgroup label="Microcredito Mype">
+                  <option value="12">Sujetas a registro DPF propio</option>
+                  <option value="4">DPF BUSA</option>
+                  <option value="24">Con otras garantias</option>
+                </optgroup>
+              </select>
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">Seleccionar</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-primary amortizacion social-icons" id="amortizacion">
+    <div class="panel-heading">Datos de Amortizacion</div>
+    <div class="panel-body">
+      <div >
+        <form id="amortizacionForm">
+          <label for="">Monto de prestamo</label>
+          <input type="text" name="monto" class="form-control" required>
+          <label for="">Periodo de pago</label>
+          <input type="text" name="pago" class="form-control" required>
+          <label for="">Tasa de interes</label>
+          <input type="text" id="interes" name="interes" class="form-control" required>
+          <label for="">Tasa nominal periodica</label>
+          <!-- <input type="text" name="periodo" class="form-control"> -->
+          <select name="periodica" id="periodica" class="form-control" required>
+            <option value="1">anual</option>
+            <option value="2">semestral</option>
+            <option value="4">trimestral</option>
+            <option value="6">bimestral</option>
+            <option value="12">mensual</option>
+            <option value="24">quincenal</option>
+            <option value="52">semanal</option>
+          </select>
+          <br>
+          <hr>
+          <button type="submit" class="btn btn-success btn-bg" name="button">Amortizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div id="amortizando" class="amortizacion">
+    <button class="btn btn-danger btn-bg cerrar" id="close" >X</button>
+    <div class="table table-responsive">
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr style="color:black;">
+            <th>Periodo</th>
+            <th>Cuota</th>
+            <th>Interes</th>
+            <th>Amortizacion</th>
+            <th>Capital</th>
+          </tr>
+        </thead>
+        <tbody id="datosTablaAmortizacion"  style="color:black;">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- <div class="social-icons">
+    <ul class="list-unstyled text-center mb-0">
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+  </div>  -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/coming-soon.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
